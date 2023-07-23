@@ -1,38 +1,351 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
+body {
+  background: #0f1452;
+}
+
+.section__title {
   text-align: center;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-size: 2.8rem;
+  color: #ff598b;
+  font-family: 'Lugrasimo', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ----------------------------------- Navbar ------------------------------------- */
+.nav-item{
+  cursor:pointer;
+}
+.nav-item::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.nav-item:hover::after{
+  transform: scaleX(1);
+}
+
+/* -------------------------------- Home -------------------------------------- */
+#home{
+  margin:120px;
+
+}
+
+.home {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin-top: 3em;
+}
+
+.home__name {
+  color: #fe37af;
+}
+
+.home__role {
+  margin-top: 1.2em;
+  color: wheat;
+}
+
+.home__desc {
+  font-size: 1rem;
+  max-width: 700px;
+  margin-top: 2.4em;
+  color:white
+}
+
+.home__contact {
+  display: flex;
+}
+
+.home .link--icon {
+  margin-left: 0.8em;
+}
+
+.home .btn--outline {
+  margin-right: 1em;
+}
+
+.btn {
+  display: block;
+  cursor: pointer;
+  padding: 0.8em 1.4em;
+  font-weight: 500;
+  font-size: 0.9rem;
+  /* text-transform: lowercase; */
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn--outline {
+  color: white;
+  border: 2px solid aqua;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn--outline:hover,
+.btn--outline:focus {
+  color: #fcfcfc;
+}
+.btn--outline::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: 90a0d9;
+  height:100%;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: right 0.2s ease-in-out;
+}
+
+.btn--outline:hover:before,
+.btn--outline:focus:before {
+  right: 0;
+}
+
+@media (max-width: 600px) {
+  .app .home {
+    align-items: flex-start;
+    margin-top: 2em;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* -----------------------------------PROJECTS------------------------------------ */
+
+/* PROJECT ITEMS */
+
+#projects{
+  margin:150px;
+}
+
+.card{
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  /* border: 6px solid rgb(0 0 0); */
+  border-radius: 1.25rem;
+  box-shadow: 1rem 2rem 20px rgb(0 0 0);
+}
+
+.textContent{
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  transform: translateY(70%);
+  background-color: rgba(255, 255, 255, 0.705);
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.card:hover .textContent{
+  transform: translateY(0%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.project__description {
+  margin-top: 1em;
 }
+
+.project__stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.2em 0;
+}
+
+.project__stack-item {
+  margin: 0.5em;
+  margin-left: 0.8rem;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.project--icon {
+  margin-left: 50%;
+  padding-top: 1rem;
+}
+
+.projects__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  grid-gap: 2em;
+}
+
+/* ---------------------------------Footer ------------------------------------ */
+
+.footer{
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+
+/* .app {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  color: var(--clr-fg);
+  background-color: var(--clr-bg);
+} */
+
+/* .light {
+  --clr-bg: #fcfcfc;
+  --clr-bg-alt: #fff;
+  --clr-fg: #555;
+  --clr-fg-alt: #444;
+  --clr-primary: #2978b5;
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+} */
+
+/* body {
+  --clr-bg: #23283e;
+  --clr-bg-alt: #2a2f4c;
+  --clr-fg: #bdbddd;
+  --clr-fg-alt: #cdcdff;
+  --clr-primary: #90a0d9;
+  --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+} */
+
+/* main {
+  max-width: 1100px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.section {
+  margin-top: 5em;
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  /* color: var(--clr-primary); */
+  /* padding: 0 0 0.3em 0;
+  position: relative;
+}
+
+.link:hover {
+  color: var(--clr-primary);
+}
+
+.link::before {
+  content: '';
+  display: inline;
+  width: 0%;
+  height: 0.2em;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--clr-primary);
+  transition: width 0.2s ease-in;
+}
+
+.link:hover::before,
+.link:focus::before {
+  width: 100%;
+}
+
+.link--nav {
+  color: var(--clr-fg);
+  text-transform: lowercase;
+  font-weight: 500;
+}
+
+.link--icon {
+  /* color: var(--clr-fg); */
+/* }
+
+.btn {
+  display: block;
+  cursor: pointer;
+  padding: 0.8em 1.4em;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn--outline {
+  color: var(--clr-primary);
+  border: 2px solid var(--clr-primary);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn--outline:hover,
+.btn--outline:focus {
+  color: var(--clr-bg);
+}
+
+.btn--outline:before {
+  content: '';
+  position: absolute;
+  background-color: var(--clr-primary);
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: right 0.2s ease-in-out;
+}
+
+.btn--outline:hover:before,
+.btn--outline:focus:before {
+  right: 0;
+}
+
+.btn--plain {
+  text-transform: initial;
+  background-color: var(--clr-bg-alt);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  border: 0;
+}
+
+.btn--plain:hover {
+  transform: translateY(-4px);
+}
+
+.btn--icon {
+  padding: 0;
+}
+
+.btn--icon:hover,
+.btn--icon:focus {
+  color: var(--clr-primary);
+}
+
+.btn--icon:active {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 600px) {
+  .section {
+    margin-top: 4em;
+  }
+}  */
